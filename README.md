@@ -2,7 +2,7 @@
 
 ## Description du Projet
 
-L'application est construite en utilisant Angular et fournie aux développeurs une API sous la forme d'une library. Cette API fournie un composant graphique "Calendrier" Angular qui affiche les jours d'un mois e fonction du mois et de l'année sélectionnée par l'utilsateur.
+L'application est construite en utilisant Angular et fournie aux développeurs une API sous la forme d'une library. Cette API fournie un composant graphique "Calendrier" Angular qui affiche les jours d'un mois en fonction du mois et de l'année sélectionnée par l'utilsateur. Cette library possède également un affichage d'évènements.
 Le projet Consumer est une démo de la library qui montre un exemple d'utilisation de l'API.
 
 ## Screenshot
@@ -38,8 +38,8 @@ ng serve
 
 ## Personnalisation
 
-``` js
-<lib-calendar-library defaultStartMonth="September" defaultStartYear="2000" firstDayOfWeek="Sat">
+``` javascript
+<lib-calendar-library defaultStartMonth="September" defaultStartYear="2000" firstDayOfWeek="Sat" [listOfEvents]="listOfEvents">
   <h1 title>Mon Super Calendrier</h1>
 </lib-calendar-library>
 
@@ -47,6 +47,7 @@ ng serve
 - 2 paramètres peuvent être renseignés pour afficher le calendrier à une date donnée (defaultStartMonth et defaultStartYear)
 - Le paramètre firstDayOfWeek permet de faire commencer la semaine un autr jour que lundi
 - Une balise de votre choix portant le label 'title' viendra remplacer le titre par défaut du composant calendrier
+- Le paramètre listOfEvents est bindé à une liste d'évènements en local. Ces évènements sont présents sous la forme d'une classe exposée par la library
 
 ## Auteur
 
