@@ -39,12 +39,13 @@ ng serve
 ## Personnalisation
 
 ``` js
-<lib-calendar-library defaultStartMonth="September" defaultStartYear="2000">
+<lib-calendar-library defaultStartMonth="September" defaultStartYear="2000" firstDayOfWeek="Sat">
   <h1 title>Mon Super Calendrier</h1>
 </lib-calendar-library>
 
 ```
 - 2 paramètres peuvent être renseignés pour afficher le calendrier à une date donnée (defaultStartMonth et defaultStartYear)
+- Le paramètre firstDayOfWeek permet de faire commencer la semaine un autr jour que lundi
 - Une balise de votre choix portant le label 'title' viendra remplacer le titre par défaut du composant calendrier
 
 ## Auteur
