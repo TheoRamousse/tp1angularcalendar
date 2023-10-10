@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CalendarLibraryService } from './calendar-library.service';
+import { CalendarEvent } from './model/calendar-event';
 
 @Component({
   selector: 'lib-calendar-library',
@@ -34,6 +35,7 @@ export class CalendarLibraryComponent implements OnInit {
   @Input() defaultStartMonth: string = "";
   @Input() defaultStartYear: string = "";
   @Input() firstDayOfWeek: string = "";
+  @Input() listOfEvents: CalendarEvent[] = [];
 
 
   constructor(service: CalendarLibraryService) {
@@ -72,6 +74,12 @@ export class CalendarLibraryComponent implements OnInit {
 
   get dayNames(): string[] {
     return this.service.getDays(this.startDay)
+  }
+
+  isEventMatch(day: number) {
+    console.log(this.listOfEvents[0].dateAsString);
+    console.log(day.toString() + "/" + this.month.toString() + "/" + this.year.toString())
+    return this.listOfEvents.find(el => el.dateAsString === day.toString() + "/" + this.month.toString() + "/" + this.year.toString())
   }
 
 }

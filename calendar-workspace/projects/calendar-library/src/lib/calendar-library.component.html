@@ -15,7 +15,20 @@
                 <th *ngFor="let day of dayNames">{{ day }}</th>
             </tr>
             <tr *ngFor="let week of weeks">
-                <td *ngFor="let day of week">{{ day === -1 ? '‎' : day }}</td>
+                <td *ngFor="let day of week">
+                    <div style="color:'red';" *ngIf="isEventMatch(day)">
+                        <div>
+                            {{ day === -1 ? '‎' : day }}
+                        </div>
+                        <div>
+                            {{isEventMatch(day)?.title}}
+                        </div>
+                        <div>
+                            {{isEventMatch(day)?.description}}
+                        </div>
+                    </div>
+                    <div style="color:'green';" *ngIf="!isEventMatch(day)">{{ day === -1 ? '‎' : day }}</div>
+                </td>
             </tr>
         </table>
     </div>
