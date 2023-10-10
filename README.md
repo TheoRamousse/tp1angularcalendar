@@ -7,7 +7,7 @@ Le projet Consumer est une démo de la library qui montre un exemple d'utilisati
 
 ## Screenshot
 
-
+![Projet Consumer](./images/calendar.png)
 
 ## Prérequis
 
