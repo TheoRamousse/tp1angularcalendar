@@ -1,0 +1,22 @@
+<div>
+    <div #ref><ng-content select="[title]"></ng-content></div>
+    <h1 *ngIf="!ref.hasChildNodes()">Calendrier</h1>
+    <div>
+        <label for="month">Mois :</label>
+        <select id="month" [(ngModel)]="month" (change)="refreshCalendar()">
+            <option *ngFor="let m of months" [value]="m.value">{{ m.name }}</option>
+        </select>
+        <label for="year">Année :</label>
+        <input id="year" type="number" [(ngModel)]="year" (change)="refreshCalendar()">
+    </div>
+    <div *ngIf="days">
+        <table>
+            <tr>
+                <th *ngFor="let day of dayNames">{{ day }}</th>
+            </tr>
+            <tr *ngFor="let week of weeks">
+                <td *ngFor="let day of week">{{ day === -1 ? '‎' : day }}</td>
+            </tr>
+        </table>
+    </div>
+</div>
