@@ -11,7 +11,7 @@ import { CalendarLibraryService } from './calendar-library.service';
 export class CalendarLibraryComponent implements OnInit {
   public days: number[][] = [];
   private service: CalendarLibraryService
-  public dayNames: string[] = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  private daysOrdered: string[] = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
   public months: { name: string, value: number }[] = [
     { name: 'January', value: 1 },
     { name: 'February', value: 2 },
@@ -29,9 +29,11 @@ export class CalendarLibraryComponent implements OnInit {
 
   public year: number = 0
   public month: number = 0
+  private startDay = 0
 
   @Input() defaultStartMonth: string = "";
   @Input() defaultStartYear: string = "";
+  @Input() firstDayOfWeek: string = "";
 
 
   constructor(service: CalendarLibraryService) {
@@ -40,6 +42,9 @@ export class CalendarLibraryComponent implements OnInit {
 
   ngOnInit(): void {
     const currentDate = new Date();
+    if (this.firstDayOfWeek.length > 0) {
+      this.startDay = this.daysOrdered.indexOf(this.firstDayOfWeek)
+    }
     if (this.defaultStartMonth) {
       this.month = this.months.find(el => el.name === this.defaultStartMonth)?.value!
     }
@@ -58,11 +63,15 @@ export class CalendarLibraryComponent implements OnInit {
   }
 
   refreshCalendar(): void {
-    this.days = this.service.generateDaysOfCalendar(this.month, this.year)
+    this.days = this.service.generateDaysOfCalendar(this.month, this.year, this.startDay)
   }
 
   get weeks(): number[][] {
     return this.days;
+  }
+
+  get dayNames(): string[] {
+    return this.service.getDays(this.startDay)
   }
 
 }

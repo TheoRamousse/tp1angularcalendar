@@ -5,12 +5,26 @@ import { Injectable } from '@angular/core';
 })
 export class CalendarLibraryService {
 
+  private dayNames: string[] = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+
   constructor() {
 
   }
 
-  generateDaysOfCalendar(month: number, year: number) {
-    const firstDayOfMonth = (new Date(year, month - 1, 1).getDay() + 6) % 7;
+  getDays(firstDayOfWeek: number) {
+    const startingIndex = firstDayOfWeek;
+    if (startingIndex >= 0) {
+      return [
+        ...this.dayNames.slice(startingIndex),
+        ...this.dayNames.slice(0, startingIndex)
+      ];
+    } else {
+      throw new Error(`Invalid starting day: ${firstDayOfWeek}`);
+    }
+  }
+
+  generateDaysOfCalendar(month: number, year: number, firstDayOfWeek: number) {
+    const firstDayOfMonth = (new Date(year, month - 1, 1).getDay() - firstDayOfWeek + 6) % 7;
 
     const daysInMonth = new Date(year, month, 0).getDate();
 
