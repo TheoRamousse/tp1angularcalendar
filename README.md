@@ -18,10 +18,16 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur 
 
 ## Installation
 
-Lancer le Dockerfile avec la commande :
+Build le Dockerfile à la racine du repos avec la commande :
 
 ```bash
-docker run -p 8085:80 app-angular
+docker build --tag 'tp1-app-angular'
+```
+
+Lancer l'image avec la commande :
+
+```bash
+docker run -p 8085:80 tp1-app-angular
 ```
 
 **OU**
