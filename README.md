@@ -18,32 +18,49 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur 
 
 ## Installation
 
+Lancer le Dockerfile avec la commande :
+
+```bash
+docker run -p 8085:80 app-angular
+```
+
+**OU**
+
 Clonez ce repository sur votre machine locale en utilisant la commande suivante :
+
 ```bash
 git clone https://gitlab.com/TheoRamousse/tp1angularcalendar.git
 ```
+
 Naviguez vers le répertoire du projet :
+
 ```bash
 cd tp1angularcalendar/consumer
 ```
+
 Installez les dépendances en utilisant npm :
+
 ```bash
 npm install
 ```
+
 Démarrez l'application en utilisant la commande suivante :
+
 ```bash
 ng serve
 ```
+
 (l'url par défaut du projet est en général localhost:4200)
 
 ## Personnalisation
 
-``` javascript
+```javascript
 <lib-calendar-library defaultStartMonth="September" defaultStartYear="2000" firstDayOfWeek="Sat" [listOfEvents]="listOfEvents">
   <h1 title>Mon Super Calendrier</h1>
 </lib-calendar-library>
 
 ```
+
 - 2 paramètres peuvent être renseignés pour afficher le calendrier à une date donnée (defaultStartMonth et defaultStartYear)
 - Le paramètre firstDayOfWeek permet de faire commencer la semaine un autr jour que lundi
 - Une balise de votre choix portant le label 'title' viendra remplacer le titre par défaut du composant calendrier
