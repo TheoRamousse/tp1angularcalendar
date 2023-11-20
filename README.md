@@ -21,7 +21,7 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur 
 Build le Dockerfile à la racine du repos avec la commande :
 
 ```bash
-docker build --tag 'tp1-app-angular'
+ docker build -t tp1-app-angular .
 ```
 
 Lancer l'image avec la commande :
