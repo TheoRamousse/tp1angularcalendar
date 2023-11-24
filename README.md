@@ -11,7 +11,7 @@ Le projet Consumer est une démo de la library qui montre un exemple d'utilisati
 
 ## Prérequis
 
-Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur votre système :
+Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur votre système seulement si vous n'utilisez pas Docker :
 
 - Node.js et npm : [Télécharger et Installer](https://nodejs.org/)
 - Angular CLI : Pour installer Angular CLI, utilisez la commande suivante : `npm install -g @angular/cli`
@@ -29,6 +29,8 @@ Lancer l'image avec la commande :
 ```bash
 docker run -p 8085:80 tp1-app-angular
 ```
+Le projet tourne alors à l'URL https://localhost:8085
+
 
 **OU**
 
